@@ -11,36 +11,41 @@ class interval:
 	def get_end(self):
 		return self.end
 
-class interval_node():
+class nilNone:
+	def __init__(self):
+		self.is_red = False
+
+NIL = nilNone()
+
+
+class interval_node:
 	"""
 	as we said we modify the RBT.
 	so, every node stores
 	"""
 	def __init__(self, interval):
 		self.intt = interval
-		self.max = interval.end
-		self.left = None
-		self.right = None
+		self.max_till_now = interval.end
+		self.parent = NIL
+		self.left = NIL
+		self.right = NIL
 
-def insert(INTNode, interval):
-	if INTNode == None:
-		return interval_node(interval)
+class interval_tree:
+	"""interval tree class"""
+	def __init__(self, root = NIL)
+	self.root = root
 
-	low = INTNode.intt.begin
+	def insert(self, i_node):
+		"""This insert will be similar to RB_insert
+		we'll have to modify max_till_now of each ancestor
+		of newly inserted node"""
 
-	if interval.begin < low:
-		INTNode.left = insert(INTNode.left, interval)
+		if self.root == NIL:
+			self.root = i_node
 
-	else:
-		INTNode.right = insert(INTNode.right, interval)
+		
 
-	if INTNode.max < interval.high:
-		INTNode.max = interval.high
-
-	return INTNode
-
-def 
-
+		
 
 
 
