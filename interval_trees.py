@@ -39,6 +39,8 @@ def insert(INTNode, interval):
 
 	return INTNode
 
+def 
+
 
 
 
