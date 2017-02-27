@@ -1,34 +1,52 @@
-#using find_longest_subsequence() you can find longest
-#continuous subsequence of any sequence
+#using longest_zigzag() you can find longest
+#subsequence of any sequence seq.
+"""
+len(zigzag[j]) = {1  if j = 0
+				  2  if j == 1
+				  len(zigzag[j-1])+ 1 if condition satisfies
+				  len(zigzag[j-1]) if not}
+"""
 #Problems is solved by dividing them into many sub-
 #problems, so this is a kind of DP problem.
 
 
-#this function finds 1st zigzag sequence
-#in sequence a and returns length of it and
-#index where it ends.
-def find_first_zigzag_length(a):
-	l = 1	#initializing length
-	i = 2	#starting at index = 2
-	while(i < len(a) and (a[i]-a[i-1])*(a[i-1]-a[i-2]) < 0):	
-		#checks if two difference are opposite or not!
-		l = l + 1
-		i = i+1
-	return i-1,l
+"""
+Here zigzag stores all the elements of
+zigzag found so far
+at every point we check if adding new
+element to zigzag satisfies zigzag property
+or not!
+So, we keep updating zigzag every time.
+So, we are not solving all the sub-
+problems at every step but keep using previous
+solution to find the current. So, this DP is
+optimal.
+"""
+
+zigzag = []
+
+def longest_zigzag(seq):
+	n = len(seq)
+
+	for j in range(n):
+		if len(zigzag) == 0:
+			zigzag.append(seq[j])
+		elif len(zigzag) == 1:
+			if seq[j] != zigzag[0]:
+				zigzag.append(seq[j])
+			else:
+				continue
+		else:
+			if (seq[j] - zigzag[len(zigzag) - 1])* \
+				(zigzag[len(zigzag) - 1] - zigzag[len(zigzag) - 2]) < 0 :
+				zigzag.append(seq[j])
+			else:
+				continue
+	return len(zigzag), zigzag
 
 
-#This function calls find_first_zigzag_length() every
-#time and get the longest common one.
-def find_longest_subsequence(a):
-	maximum_len = 0	#initializing max length
-	j = 0
-	while(j < len(a)-1):
-		k, maximum_len = find_first_zigzag_length(a[j:])
-		j = j+k
-	return maximum_len
 
 a = [1,17,5,10,13,15,10,5,16,8]
 
-ml = find_longest_subsequence(a)
+ml = longest_zigzag(a)
 print ml
-
