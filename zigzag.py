@@ -1,3 +1,8 @@
+#Assignment-2, Problem-1
+"""
+problem statement:
+https://community.topcoder.com/stat?c=problem_statement&pm=1259
+"""
 #using longest_zigzag() you can find longest
 #subsequence of any sequence seq.
 """
