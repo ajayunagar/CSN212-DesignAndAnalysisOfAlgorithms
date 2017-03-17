@@ -42,6 +42,8 @@ def lcis(a):
 		if lis_s_e[i] == None:
 			lis_s_e[i] = a[i]
 	maximum = 1
+	print lis_e, lis_s
+	print lis_e_s, lis_s_e
 
 	for i in range(0,n):
 		if(lis_e_s[i%n] < lis_s_e[(i+1)%n]):
@@ -56,5 +58,5 @@ if __name__ == '__main__':
 		l = int(raw_input())
 		numbers = raw_input()
 		numbers = numbers.split(' ')
-		a = [int(x.strip()) for x in numbers]
-		print lcis(a)
+		array = [int(x.strip()) for x in numbers]
+		print lcis(array)
