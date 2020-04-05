@@ -52,4 +52,5 @@ if __name__ == '__main__':
 	print time.clock() - t1
 
 	print("This is to just check the changes!")
+	print("This is the second change")
 	
