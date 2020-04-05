@@ -50,4 +50,6 @@ if __name__ == '__main__':
 
 	g.BellmanFord(0)
 	print time.clock() - t1
+
+	print("This is to just check the changes!")
 	
